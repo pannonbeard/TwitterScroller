@@ -1,0 +1,43 @@
+$(document).ready(function(){
+  var time = 8000;
+  $('#tweet-0').addClass('was-active');
+  $('#tweet-1').addClass('is-active');
+  $('#tweet-2').addClass('going-active');
+  var count = $('.tweet').length;
+
+  function nextTweet(){
+
+    if($('#tweet-'+ (count - 3)).hasClass('is-active')){
+      location.reload();
+    }
+    
+    if( $('#tweet-1').hasClass('is-active') ){
+      $('#tweet-0').removeClass('was-active');
+      $('#tweet-1').removeClass('is-active').addClass('was-active');
+      $('#tweet-2').removeClass('going-active').addClass('is-active');
+      $('#tweet-3').addClass('going-active');
+    }
+
+    <% (1..27).each do |tweet| %> //max out at 30 posts
+      else if( $('#tweet-<%= tweet %>').hasClass('is-active') ){
+        $('#tweet-<%= tweet -1 %>').removeClass('was-active');
+        $('#tweet-<%= tweet %>').removeClass('is-active').addClass('was-active');
+        $('#tweet-<%= tweet + 1 %>').removeClass('going-active').addClass('is-active');
+        $('#tweet-<%= tweet + 2 %>').addClass('going-active');
+      }
+    <% end %>
+
+    else{
+      $('#tweet-'+ (count - 2)).removeClass('is-active').addClass('was-active');
+      $('#tweet-'+ (count - 1)).removeClass('going-active').addClass('is-active');
+    }
+  }
+
+  function moveOnTweet(){
+    save = setInterval(nextTweet, time);
+  }
+
+  moveOnTweet();
+
+  //setTimeout(function(){location.reload();}, 10000);
+});

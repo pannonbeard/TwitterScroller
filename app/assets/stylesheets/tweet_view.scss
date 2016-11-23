@@ -1,0 +1,66 @@
+a{
+  text-decoration: none;
+  color:black;
+}
+
+.tweet{
+  left:0;
+  right:0;
+  margin-left:auto;
+  margin-right:auto;
+  position:absolute;
+  visibility:hidden;
+  opacity:0;
+  margin:10px auto;
+  width:35%;
+  height:17%;
+  background:rgba(0,0,0, 0.30);
+  border-radius:10px;
+  padding:20px;
+  box-shadow: 2px 1px 5px rgba(0,0,0, 0.30), -1px 0 5px rgba(0,0,0, 0.30);
+  transition: all 0.5s;
+  img{
+    width:100%;
+  }
+}
+
+.tweet.is-active{
+  visibility:visible;
+  opacity: 1;
+  top:31.5%;
+  height:28%;
+  width:50%;
+  .tweet-text{
+    font-size:26px;
+  }
+  .image-block{
+    width:37%;
+  }
+}
+
+.tweet.was-active{
+  visibility:visible;
+  opacity:0.5;
+  top:5%
+}
+.tweet.going-active{
+  visibility:visible;
+  opacity:0.5;
+  top:70%;
+}
+.tweet-text{
+  width:61%;
+  float:left;
+  font-size: 21px;
+  transition:all 0.5s;
+}
+
+.image-block{
+  height: 100%;
+  width: 28%;
+  overflow:hidden;
+  border-radius:10px;
+  float:left;
+  margin-right:10px;
+  transition:all 0.5s;
+}
